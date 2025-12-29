@@ -13,6 +13,7 @@ const NotesRef = "remarks"
 // Run executes a git command and returns the output
 func Run(args ...string) (string, error) {
 	cmd := exec.Command("git", args...)
+	cmd.Stdin = nil // Prevent git from waiting for stdin
 	var stdout, stderr bytes.Buffer
 	cmd.Stdout = &stdout
 	cmd.Stderr = &stderr

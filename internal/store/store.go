@@ -24,7 +24,7 @@ func (s *Store) Get(commit string) (*remark.Remarks, error) {
 	output, err := git.Run("notes", "--ref="+s.notesRef, "show", commit)
 	if err != nil {
 		// No notes found for this commit
-		if strings.Contains(err.Error(), "No note found") {
+		if strings.Contains(strings.ToLower(err.Error()), "no note found") {
 			return &remark.Remarks{}, nil
 		}
 		return nil, err
@@ -45,7 +45,7 @@ func (s *Store) Save(commit string, remarks *remark.Remarks) error {
 		return err
 	}
 
-	_, err = git.RunWithStdin(string(data), "notes", "--ref="+s.notesRef, "add", "-f", commit)
+	_, err = git.RunWithStdin(string(data), "notes", "--ref="+s.notesRef, "add", "-f", "-F", "-", commit)
 	return err
 }
 
@@ -54,7 +54,7 @@ func (s *Store) Remove(commit string) error {
 	_, err := git.Run("notes", "--ref="+s.notesRef, "remove", commit)
 	if err != nil {
 		// Ignore error if no notes exist
-		if strings.Contains(err.Error(), "No note found") {
+		if strings.Contains(strings.ToLower(err.Error()), "no note found") {
 			return nil
 		}
 		return err

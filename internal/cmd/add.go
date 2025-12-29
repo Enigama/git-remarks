@@ -129,7 +129,19 @@ func looksLikeCommit(s string) bool {
 func openEditor(commit, branch, remarkType, existingBody string) (body string, newType string, err error) {
 	editor := os.Getenv("EDITOR")
 	if editor == "" {
-		editor = "vi"
+		editor = os.Getenv("VISUAL")
+	}
+	if editor == "" {
+		// Check if common editors exist
+		for _, e := range []string{"nano", "vim", "vi"} {
+			if _, err := exec.LookPath(e); err == nil {
+				editor = e
+				break
+			}
+		}
+	}
+	if editor == "" {
+		return "", "", fmt.Errorf("no editor found. Set $EDITOR or provide body inline: git remarks add \"your message\"")
 	}
 
 	// Create temp file with template
@@ -152,6 +164,8 @@ type: %s
 		return "", "", fmt.Errorf("failed to write template: %w", err)
 	}
 	tmpfile.Close()
+
+	fmt.Fprintf(os.Stderr, "Opening %s...\n", editor)
 
 	// Open editor
 	editorCmd := exec.Command(editor, tmpfile.Name())
