@@ -16,12 +16,12 @@ Personal developer notes attached to Git commits.
 
 ### From GitHub Releases
 
-Download the latest release from [GitHub Releases](https://github.com/yevhenii/git-remarks/releases) and add the binary to your PATH.
+Download the latest release from [GitHub Releases](https://github.com/Enigama/git-remarks/releases) and add the binary to your PATH.
 
 ### From Source
 
 ```bash
-go install github.com/yevhenii/git-remarks/cmd/git-remarks@latest
+go install github.com/Enigama/git-remarks/cmd/git-remarks@latest
 ```
 
 ## Quick Start

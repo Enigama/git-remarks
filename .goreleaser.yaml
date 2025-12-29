@@ -56,7 +56,7 @@ changelog:
 
 release:
   github:
-    owner: yevhenii
+    owner: Enigama
     name: git-remarks
   draft: false
   prerelease: auto

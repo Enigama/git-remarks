@@ -1,4 +1,4 @@
-module github.com/yevhenii/git-remarks
+module github.com/Enigama/git-remarks
 
 go 1.21
 

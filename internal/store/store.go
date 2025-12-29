@@ -3,8 +3,8 @@ package store
 import (
 	"strings"
 
-	"github.com/yevhenii/git-remarks/internal/git"
-	"github.com/yevhenii/git-remarks/internal/remark"
+	"github.com/Enigama/git-remarks/internal/git"
+	"github.com/Enigama/git-remarks/internal/remark"
 )
 
 // Store handles reading and writing remarks to git notes

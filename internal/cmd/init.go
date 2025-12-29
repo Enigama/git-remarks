@@ -6,7 +6,7 @@ import (
 	"path/filepath"
 
 	"github.com/spf13/cobra"
-	"github.com/yevhenii/git-remarks/internal/git"
+	"github.com/Enigama/git-remarks/internal/git"
 )
 
 var initCmd = &cobra.Command{

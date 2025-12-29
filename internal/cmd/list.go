@@ -6,9 +6,9 @@ import (
 	"time"
 
 	"github.com/spf13/cobra"
-	"github.com/yevhenii/git-remarks/internal/git"
-	"github.com/yevhenii/git-remarks/internal/remark"
-	"github.com/yevhenii/git-remarks/internal/store"
+	"github.com/Enigama/git-remarks/internal/git"
+	"github.com/Enigama/git-remarks/internal/remark"
+	"github.com/Enigama/git-remarks/internal/store"
 )
 
 var listCmd = &cobra.Command{

@@ -7,8 +7,8 @@ import (
 	"strings"
 
 	"github.com/spf13/cobra"
-	"github.com/yevhenii/git-remarks/internal/git"
-	"github.com/yevhenii/git-remarks/internal/store"
+	"github.com/Enigama/git-remarks/internal/git"
+	"github.com/Enigama/git-remarks/internal/store"
 )
 
 var recoverCmd = &cobra.Command{
