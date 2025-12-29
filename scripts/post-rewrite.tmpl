@@ -1,0 +1,14 @@
+#!/bin/sh
+# git-remarks post-rewrite hook
+# Migrates remarks when commits are rewritten (rebase, amend)
+
+rewrite_type="$1"
+
+# Check if git-remarks is available
+if ! command -v git-remarks >/dev/null 2>&1; then
+    exit 0
+fi
+
+# Pass stdin to git-remarks migrate-rewrites
+git-remarks migrate-rewrites "$rewrite_type"
+
