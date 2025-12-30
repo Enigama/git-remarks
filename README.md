@@ -128,18 +128,16 @@ If remarks become orphaned (e.g., hooks weren't installed), use `git remarks rec
 
 ## Note Format
 
-Remarks are stored as YAML:
+Remarks are displayed as:
 
 ```yaml
-remarks:
-  - id: a1b2c3d4
-    type: thought
-    branch: feature/auth
-    state: active
-    created_at: 2025-12-27T10:30:00Z
-    body: |
-      Not confident in this approach yet.
-      Revisit after more usage.
+id: a1b2c3d4
+type: thought
+commit: abc1234
+age: 2h ago
+---
+Not confident in this approach yet.
+Revisit after more usage.
 ```
 
 ## Philosophy
